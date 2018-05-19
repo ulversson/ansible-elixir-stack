@@ -15,10 +15,10 @@
 - name: Create the Github SSH private key file
   copy: src="/Users/ulversson/.ssh/id_rsa"
         dest="/root/.ssh/id_rsa"
-        mode=0644
+        mode=0600
 
 - name: Create the Github SSH private key file
   copy: src="/Users/ulversson/.ssh/id_rsa"
         dest="/home/{{deployer}}/.ssh/id_rsa"
-        mode=0644
+        mode=0600
   tags: git-copy-deployer
