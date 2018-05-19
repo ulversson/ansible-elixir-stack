@@ -88,7 +88,7 @@
 - name: install hex
   command: bash -lc "mix local.hex --force" chdir="{{ project_path }}"
   remote_user: "{{ deployer }}"
-
+  tags: "hex"
 
 - name: install rebar
   command: bash -lc "mix local.rebar --force" chdir="{{ project_path }}"

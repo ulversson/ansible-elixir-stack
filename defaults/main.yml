@@ -12,7 +12,7 @@ setup_mysql: True
 
 
 build_frontend: True
-frontend_dir: "/assets"
+frontend_dir: "assets"
 frontend_build_command: "node_modules/brunch/bin/brunch build --production"
 post_frontend_build: "mix phx.digest"
 
