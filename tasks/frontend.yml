@@ -5,6 +5,14 @@
   args:
     chdir: "{{ project_path }}/{{ frontend_dir }}"
 
+- name: "Install system nodejs"
+  apt: >
+    name={{ item }}
+    state=present
+    update_cache=yes
+  with_items:
+    - nodejs
+
 - name: Install "brunch" node.js package.
   npm:
     name: brunch
