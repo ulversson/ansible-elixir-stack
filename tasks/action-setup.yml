@@ -49,7 +49,7 @@
 - include: wkhtmltopdf.yml
   tags: "wkhtmltopdf"
 
-- include: rabbitmg.yml
+- include: rabbitmq.yml
   tags: "rabbit"
 
 - name: start nginx using monit
