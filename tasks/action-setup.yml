@@ -32,10 +32,8 @@
 
 - include: project.yml
 
-
 - when: build_frontend == True
   include: frontend.yml
-
 
 - include: nginx.yml
 - include: monit.yml

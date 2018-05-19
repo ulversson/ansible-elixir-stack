@@ -52,3 +52,4 @@
 - name: Create the database's
   mysql_db: name={{ database_name }} state=present
   priv: '*.*:ALL'
+  password: "{{ database_password }}"

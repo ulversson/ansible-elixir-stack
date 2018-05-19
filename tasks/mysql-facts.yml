@@ -2,3 +2,6 @@
   name: "calculate database name"
   set_fact: "database_name={{ app_name }}_prod"
 
+- name: "create or get mysql password"
+  set_fact: database_password="{{ lookup('password', '~/credentials/' + deployer + '_postgres length=15') }}"
+

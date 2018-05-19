@@ -1,6 +1,4 @@
 ---
-# vars file for elixir-stack
----
 
 mysql_pkgs:
   - python-selinux
