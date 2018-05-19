@@ -1,0 +1,4 @@
+- when: "database_name is not defined"
+  name: "calculate database name"
+  set_fact: "database_name={{ app_name }}_prod"
+

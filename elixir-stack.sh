@@ -12,7 +12,7 @@ cat > playbooks/setup.yml <<EOF
     - vars/main.yml
 
   roles:
-    - {role: "HashNuke.elixir-stack", action: "setup"}
+    - {role: "ulversson.elixir-stack", action: "setup"}
 EOF
 
 
@@ -24,7 +24,7 @@ cat > playbooks/deploy.yml <<EOF
     - vars/main.yml
 
   roles:
-    - {role: "HashNuke.elixir-stack", action: "deploy"}
+    - {role: "ulversson.elixir-stack", action: "deploy"}
 EOF
 
 
@@ -103,9 +103,9 @@ echo
 
 if [ ! -f ./.tool-versions ]; then
   cat > .tool-versions <<EOF
-erlang 18.0
-elixir 1.0.5
-nodejs 0.12.5
+erlang 20.3
+elixir 1.5.1
+nodejs 6.2.0
 EOF
   echo "TODO Edit .tool-versions file with appropriate versions of Erlang, Elixir & Node.js required for project"
 fi

@@ -22,6 +22,13 @@
 - when: setup_postgres == True
   include: postgres.yml
 
+- when: setup_mysql == True
+  include: mysql-facts.yml
+
+
+- when: setup_mysql == True
+  include: mysql.yml
+
 
 - include: project.yml
 
