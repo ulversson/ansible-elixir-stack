@@ -15,8 +15,7 @@
   command: bash -lc "npm install {{npm_install_options}}" chdir="/home/deployer/projects/boundbookpdf/assets"
   remote_user: "{{ deployer }}"
   async: 1800
-  debug:
-    verbosity: 2
+
   tags: "npm-deps"
 
 - name: "build frontend assets"
