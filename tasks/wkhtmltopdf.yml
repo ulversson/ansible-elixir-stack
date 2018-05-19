@@ -43,15 +43,15 @@
 
 - name: "Download deb file for wkhtmltopdf"
   get_url: >
-    url="http://download.gna.org/wkhtmltopdf/{{ wkhtmltopdf_version_main }}/{{ wkhtmltopdf_version_full }}/wkhtmltox-{{ wkhtmltopdf_version_full }}_linux-{{ ansible_distribution_release }}-{{ wkhtmltopdf_architecture }}.deb"
-    dest="/tmp/wkhtmltox-{{ wkhtmltopdf_version_full }}_linux-{{ ansible_distribution_release }}-{{ wkhtmltopdf_architecture }}.deb"
+    url="http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-{{ ansible_distribution_release }}-amd64.deb"
+    dest="/tmp/wkhtmltox-0.12_linux-0.12.3-amd64.deb"
   tags:
     - wkhtmltopdf
     - pkgs
 
 - name: "Ensure wkhtmltopdf is installed"
   apt: >
-    deb="/tmp/wkhtmltox-{{ wkhtmltopdf_version_full }}_linux-{{ ansible_distribution_release }}-{{ wkhtmltopdf_architecture }}.deb"
+    deb="/tmp/wkhtmltox-0.12.3_linux-{{ ansible_distribution_release }}-amd64.deb"
     state=present
   tags:
     - wkhtmltopdf
