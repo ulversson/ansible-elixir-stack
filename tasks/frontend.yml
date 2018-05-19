@@ -12,7 +12,7 @@
 
 
 - name: "fetch npm dependencies"
-  command: bash -lc "npm install {{npm_install_options}}" chdir="/home/deployer/projects/boundbookpdf/assets"
+  command: npm install {{npm_install_options}} chdir=/home/deployer/projects/boundbookpdf/assets
   remote_user: "{{ deployer }}"
   async: 1800
 
