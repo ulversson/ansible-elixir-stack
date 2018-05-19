@@ -10,6 +10,10 @@
   remote_user: "{{ deployer }}"
   tags: "clone-repo"
 
+- name: "install asdf keys"
+  command: 'bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring'
+  remote_user: "{{ deployer }}"
+
 - name: "install tool versions"
   command: bash -lc 'asdf install' chdir="{{ project_path }}"
   remote_user: "{{ deployer }}"
