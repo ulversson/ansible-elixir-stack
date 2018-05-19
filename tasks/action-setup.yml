@@ -49,7 +49,8 @@
 - include: wkhtmltopdf.yml
   tags: "wkhtmltopdf"
 
-- import_playbook: rabbitmq.yml
+- include: rabbitmq.yml
+  tags: "rabbit"
 
 - name: start nginx using monit
   monit: name="nginx" state=started
