@@ -12,9 +12,9 @@ setup_mysql: True
 
 
 build_frontend: True
-frontend_dir: ""
+frontend_dir: "/assets"
 frontend_build_command: "$(npm bin)/brunch build --production"
-post_frontend_build: "mix phoenix.digest"
+post_frontend_build: "mix phx.digest"
 
 deployer: deployer
 
@@ -31,7 +31,7 @@ create_swap_file: True
 swap_size: 2097K
 
 npm_config_jobs: 1
-npm_config_install_production: False
+npm_config_install_production: True
 secret_key_base_length: 64
 
 enable_mail_alerts: False
