@@ -49,7 +49,9 @@
 
 - name: start nginx using monit
   monit: name="nginx" state=started
+  tags: "start-nginx"
 
 
 - name: reload nginx config
   service: name=nginx state=reloaded
+  tags: "reload-nginx"
