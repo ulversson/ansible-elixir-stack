@@ -1,5 +1,6 @@
 - name: Add git specific variables
   include_vars: "git.yml"
+
 - name: Create the Github SSH public key file
   copy: src="{{home_dir}}/.ssh/id_rsa.pub"
         dest="/root/.ssh/id_rsa.pub"
