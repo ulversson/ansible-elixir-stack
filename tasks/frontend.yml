@@ -5,18 +5,12 @@
   args:
     chdir: "{{ project_path }}/{{ frontend_dir }}"
 
-- name: "Install system nodejs"
-  apt: >
-    name={{ item }}
-    state=present
-    update_cache=yes
-  with_items:
-    - nodejs
-
 - name: Install "brunch" node.js package.
   npm:
+    global: true
     name: brunch
     path: "{{ project_path }}/{{ frontend_dir }}"
+
 
 - when: npm_config_install_production == True
   name: calculate npm install options
