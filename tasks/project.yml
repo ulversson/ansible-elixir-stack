@@ -36,7 +36,7 @@
 
 - name: set app_endpoint_module fact
   set_fact: app_endpoint_module="{{ grep_endpoint_module.stdout }}"
-  tags: "detect-endpoint-fact"
+  tags: "set-endpoint-fact"
 
 - name: detect repo module
   command: grep -m 1 -o '[[:alnum:]]*.Repo' {{ project_path }}/config/dev.exs
@@ -51,6 +51,8 @@
   local_action: stat path="templates/prod.secret.exs.j2"
   register: custom_prod_secret_template
   tags: "template-sec-exists"
+
+  include: mysql-facts.yml
 
 - when: custom_prod_secret_template.stat.exists == False
   name: add prod.secret.exs from default template

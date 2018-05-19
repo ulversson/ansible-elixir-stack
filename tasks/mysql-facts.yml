@@ -5,3 +5,5 @@
 - name: "create or get mysql password"
   set_fact: database_password="{{ lookup('password', '~/credentials/' + deployer + '_postgres length=15') }}"
 
+- name: "set database user"
+  set_fact: database_user="{{ deployer }}"
