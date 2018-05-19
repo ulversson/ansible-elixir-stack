@@ -10,7 +10,7 @@
   set_fact: npm_install_options="--production"
 
 - name: "fetch npm dependencies"
-  command: bash -lc "npm install {{npm_install_options}}" chdir="{{ project_path }}/{{ frontend_dir }}"
+  command: bash -lc "cd {{ project_path }}/{{ frontend_dir }} && npm install {{npm_install_options}}""
   remote_user: "{{ deployer }}"
   async: 1800
   debugger: on_failed
