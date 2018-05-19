@@ -36,10 +36,15 @@
 
 - when: build_frontend == True
   include: frontend.yml
+  tags: "frontend"
 
 - include: nginx.yml
+  tags: "nginx"
+
 - include: monit.yml
+  tags: "monit"
 - include: release.yml
+  tags: "release"
 
 
 - name: start nginx using monit
