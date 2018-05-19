@@ -8,45 +8,45 @@
     force: True
     key_file: "/home/{{deployer}}/.ssh/id_rsa"
   remote_user: "{{ deployer }}"
-
+  tags: "clone-repo"
 
 - name: "install tool versions"
   command: bash -lc 'asdf install' chdir="{{ project_path }}"
   async: 1800
   remote_user: "{{ deployer }}"
-
+  tags: "tool"
 
 - name: "generate secret key base"
   command: "openssl rand -base64 {{ secret_key_base_length }}"
   register: openssl_random_string
-
+  tags: "secret-key"
 
 - name: set secret_key_base
   set_fact: secret_key_base="{{ openssl_random_string.stdout }}"
-
+  tags: "random-key"
 
 - name: detect endpoint module
   command: grep -m 1 -o '[[:alnum:]]*.Endpoint' {{ project_path }}/config/dev.exs
   register: grep_endpoint_module
-
+  tags: "detect-endpoint"
 
 - name: set app_endpoint_module fact
   set_fact: app_endpoint_module="{{ grep_endpoint_module.stdout }}"
-
+  tags: "detect-endpoint-fact"
 
 - name: detect repo module
   command: grep -m 1 -o '[[:alnum:]]*.Repo' {{ project_path }}/config/dev.exs
   register: grep_repo_module
-
+  tags: "repo-module"
 
 - name: set app_repo_module fact
   set_fact: app_repo_module="{{ grep_repo_module.stdout }}"
-
+  tags: "repo-module-fact"
 
 - name: check if custom template for prod.secret.exs exists
   local_action: stat path="templates/prod.secret.exs.j2"
   register: custom_prod_secret_template
-
+  tags: "template-sec-exists"
 
 - when: custom_prod_secret_template.stat.exists == False
   name: add prod.secret.exs from default template
