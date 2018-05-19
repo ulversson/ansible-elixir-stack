@@ -30,7 +30,7 @@
   tags: "random-key"
 
 - name: detect endpoint module
-  command: "grep -m 1 -o '[[:alnum:]]*.Endpoint' {{ project_path }}/lib/*_web/endpoint.ex"
+  command: "grep -m 1 -o '[[:alnum:]]*.Endpoint' {{ project_path }}/lib/boundbookpdf_web/endpoint.ex"
   register: grep_endpoint_module
   tags: "detect-endpoint"
 
