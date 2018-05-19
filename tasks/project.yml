@@ -14,7 +14,7 @@
   command: 'bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring'
   remote_user: "{{ deployer }}"
   ignore_errors: yes 
-  
+
 - name: "install tool versions"
   command: bash -lc 'asdf install' chdir="{{ project_path }}"
   remote_user: "{{ deployer }}"
@@ -30,7 +30,7 @@
   tags: "random-key"
 
 - name: detect endpoint module
-  command: grep -m 1 -o '[[:alnum:]]*.Endpoint' {{ project_path }}/ lib/*_web/endpoint.ex/dev.exs
+  command: grep -m 1 -o '[[:alnum:]]*.Endpoint' {{ project_path }}/lib/*_web/endpoint.ex/dev.exs
   register: grep_endpoint_module
   tags: "detect-endpoint"
 
