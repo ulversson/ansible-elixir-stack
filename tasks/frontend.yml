@@ -15,20 +15,7 @@
   command: bash -lc "npm install {{npm_install_options}}" chdir="{{ project_path }}/{{ frontend_dir }}"
   remote_user: "{{ deployer }}"
   async: 1800
-
-
-- name: check for bower.json
-  stat: path="{{ project_path }}/{{frontend_dir}}/bower.json"
-  register: bower_json_file
-
-
-- when: bower_json_file.stat.exists == True
-  name: install bower dependencies
-  command: bash -lc "$(npm bin)/bower install"
-  remote_user: "{{ deployer }}"
-  args:
-    chdir: "{{ project_path }}/{{ frontend_dir }}"
-
+  tags: "npm-deps"
 
 - name: "build frontend assets"
   command: bash -lc "{{ frontend_build_command }}"
