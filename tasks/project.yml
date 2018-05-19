@@ -15,9 +15,9 @@
   remote_user: "{{ deployer }}"
   ignore_errors: yes 
 
-- name: "install tool versions"
+- name: "install tool versions (erlang elixir & node)"
   async: 1800
-  command: bash -lc 'asdf install' chdir="{{ project_path }}"
+  command: "asdf install chdir={{ project_path }}"
   remote_user: "{{ deployer }}"
   tags: "tool"
 
