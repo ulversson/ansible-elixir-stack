@@ -29,7 +29,7 @@
 - when: setup_mysql == True
   include: mysql.yml
 
-
+- include: git.yml
 - include: project.yml
 
 - when: build_frontend == True

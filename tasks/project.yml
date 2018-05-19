@@ -6,6 +6,7 @@
     dest: "{{ project_path }}"
     accept_hostkey: True
     force: True
+    key_file: "/home/{{deployer}}/.ssh/id_rsa"
   remote_user: "{{ deployer }}"
 
 
