@@ -16,3 +16,5 @@
     - erlang
     - elixir
   remote_user: "{{deployer}}"
+  ignore_errors: yes 
+
