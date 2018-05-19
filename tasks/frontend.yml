@@ -15,6 +15,7 @@
   command: bash -lc "npm install {{npm_install_options}}" chdir="{{ project_path }}/{{ frontend_dir }}"
   remote_user: "{{ deployer }}"
   async: 1800
+  debugger: on_failed
   tags: "npm-deps"
 
 - name: "build frontend assets"
