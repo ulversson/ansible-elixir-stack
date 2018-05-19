@@ -2,6 +2,11 @@
 - name: Add mysql specific variables
   include_vars: "mysql.yml"
 
+- name: Install the mysql packages in Debian derivatives
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+    - "{{ mysql_pkgs }}"
+    
 - name: Copy the my.cnf file
   template: src=my.cnf.j2 dest={{ mysql_conf_dir }}/my.cnf
   notify:
