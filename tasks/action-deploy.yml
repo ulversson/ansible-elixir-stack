@@ -2,6 +2,9 @@
 - when: setup_postgres == True
   include: postgres-facts.yml
 
+- when: setup_mysql == True
+  include: mysql-facts.yml
+
 
 - include: project.yml
 

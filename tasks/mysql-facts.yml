@@ -3,7 +3,7 @@
   set_fact: "database_name={{ app_name }}_prod"
 
 - name: "create or get mysql password"
-  set_fact: database_password="{{ lookup('password', '~/credentials/' + deployer + '_postgres length=15') }}"
+  set_fact: database_password="{{mysql_root_db_pass}}"
 
 - name: "set database user"
-  set_fact: database_user="{{ deployer }}"
+  set_fact: database_user="root"
