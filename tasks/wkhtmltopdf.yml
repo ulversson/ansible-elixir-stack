@@ -57,3 +57,5 @@
   tags:
     - wkhtmltopdf
     - pkgs
+  dpkg_options:
+      - "--ignore-depends"
