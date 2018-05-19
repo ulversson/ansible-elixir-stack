@@ -22,7 +22,7 @@
   remote_user: "{{ deployer }}"
   args:
     chdir: "{{ project_path }}/{{ frontend_dir }}"
-
+  tags: "build-brunch"  
 
 - when: "post_frontend_build != False"
   name: "post-frontend-build command"

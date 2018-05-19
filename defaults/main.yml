@@ -13,7 +13,7 @@ setup_mysql: True
 
 build_frontend: True
 frontend_dir: "/assets"
-frontend_build_command: "$(npm bin)/brunch build --production"
+frontend_build_command: "node_modules/brunch/bin/brunch build --production"
 post_frontend_build: "mix phx.digest"
 
 deployer: deployer
@@ -27,7 +27,7 @@ create_swap_file: True
 # swap size in 1kb blocks
 # we'll set the default at around 2gb
 # 2048mb * 1024kb == 2097152
-# which is approximately 2097 thousand ( == 2097k)
+# which is approximately 2097  thousand ( == 2097k)
 swap_size: 2097K
 
 npm_config_jobs: 1
