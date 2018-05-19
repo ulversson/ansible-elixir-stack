@@ -52,6 +52,7 @@
   register: custom_prod_secret_template
   tags: "template-sec-exists"
 
+- when: setup_mysql == True
   include: mysql-facts.yml
 
 - when: custom_prod_secret_template.stat.exists == False
