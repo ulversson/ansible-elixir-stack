@@ -14,10 +14,8 @@
 - include: deployer-user.yml
 - include: asdf.yml
 
-
 - when: setup_postgres == True
   include: postgres-facts.yml
-
 
 - when: setup_postgres == True
   include: postgres.yml
@@ -25,14 +23,15 @@
 - when: setup_mysql == True
   include: mysql-facts.yml
 
-
 - when: setup_mysql == True
   include: mysql.yml
-
 
 - include: git.yml
 - include: project.yml
   tags: project
+
+- include: wkhtmltopdf.yml
+  tags: "wkhtmltopdf"
 
 - when: build_frontend == True
   include: frontend.yml
@@ -46,13 +45,9 @@
 - include: release.yml
   tags: "release"
 
-- include: wkhtmltopdf.yml
-  tags: "wkhtmltopdf"
-
 - name: start nginx using monit
   monit: name="nginx" state=started
   tags: "start-nginx"
-
 
 - name: reload nginx config
   service: name=nginx state=reloaded

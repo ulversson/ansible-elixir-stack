@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Akash Manohar
+  author: ""
   description: Tool to setup servers for Elixir & Phoenix framework apps
   license: MIT
   min_ansible_version: 1.9

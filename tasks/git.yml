@@ -1,24 +1,24 @@
 - name: Add git specific variables
   include_vars: "git.yml"
 
-- name: Create the Github SSH public key file
-  copy: src="/Users/ulversson/.ssh/id_rsa.pub"
+- name: Create the Github SSH public key file (root)
+  copy: src="/{{home_dir}}/.ssh/id_rsa.pub"
         dest="/root/.ssh/id_rsa.pub"
         mode=0644
 
-- name: Create the Github SSH public key file
-  copy: src="/Users/ulversson/.ssh/id_rsa.pub"
+- name: Create the Github SSH public key file (deployer user)
+  copy: src="/{{home_dir}}/.ssh/id_rsa.pub"
         dest="/home/{{deployer}}/.ssh/id_rsa.pub"
         mode=0644
   tags: git-copy-user
 
-- name: Create the Github SSH private key file
-  copy: src="/Users/ulversson/.ssh/id_rsa"
+- name: Create the Github SSH private key file (root)
+  copy: src="/{{home_dir}}/.ssh/id_rsa"
         dest="/root/.ssh/id_rsa"
         mode=0600
 
-- name: Create the Github SSH private key file
-  copy: src="/Users/ulversson/.ssh/id_rsa"
+- name: Create the Github SSH private key file (deployer user)
+  copy: src="/{{home_dir}}/.ssh/id_rsa"
         dest="/home/{{deployer}}/.ssh/id_rsa"
         mode=0600
   tags: git-copy-deployer
